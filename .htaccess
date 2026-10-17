@@ -1,0 +1,27 @@
+# Shifa shop
+Options -Indexes
+DirectoryIndex index.php
+
+# Allow bigger product photos
+<IfModule mod_php.c>
+  php_value upload_max_filesize 8M
+  php_value post_max_size 40M
+</IfModule>
+
+# Cache images, styles and scripts for a week
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType image/webp "access plus 7 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
+
+# Hide private files
+<FilesMatch "(\.log|\.sqlite|\.sqlite-wal|\.sqlite-shm|\.md)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>

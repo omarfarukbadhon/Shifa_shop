@@ -1,0 +1,10 @@
+# Private settings (database password, secret key) — never upload these
+includes/config.php
+
+# Database and logs
+data/*.sqlite
+data/*.sqlite-*
+data/mail.log
+
+# Customer-uploaded photos (back them up from your hosting instead)
+uploads/*/
